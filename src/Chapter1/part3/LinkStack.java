@@ -1,7 +1,7 @@
+package Chapter1.part3;
+
 import edu.princeton.cs.algs4.StdOut;
 
-import java.io.FileReader;
-import java.nio.CharBuffer;
 import java.util.Iterator;
 
 public class LinkStack<Item> implements Iterable<Item>{

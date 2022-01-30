@@ -1,3 +1,5 @@
+package Chapter1.part2;
+
 import edu.princeton.cs.algs4.StdOut;
 
 public class date {

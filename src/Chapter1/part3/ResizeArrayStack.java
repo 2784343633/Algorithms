@@ -1,4 +1,5 @@
-import edu.princeton.cs.algs4.In;
+package Chapter1.part3;
+
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Iterator;

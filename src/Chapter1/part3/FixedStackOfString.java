@@ -1,4 +1,5 @@
-import edu.princeton.cs.algs4.StdIn;
+package Chapter1.part3;
+
 import edu.princeton.cs.algs4.StdOut;
 
 public class FixedStackOfString {
