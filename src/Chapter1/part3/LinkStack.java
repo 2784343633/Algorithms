@@ -108,8 +108,32 @@ public class LinkStack<Item> implements Iterable<Item>{
         }
         return unit.pop();
     }
+    public  static LinkStack<String> copy(LinkStack<String> orin){
+        Iterator<String> iterator = orin.iterator();
+        LinkStack<String> temp = new LinkStack<>();
+        while(iterator.hasNext()){
+            temp.push(iterator.next());
+        }
+        iterator = temp.iterator();
+        while(!temp.isEmpty()){
+            temp.pop();
+        }
+        while(iterator.hasNext()){
+            temp.push(iterator.next());
+        }
+        return temp;
+    }
     public static void main(String[] args){
-        String exp = "1 + 2 ) * 3 - 4 ) * 5 - 6 ) ) )";
-        StdOut.print(LinkStack.FixExpression(exp));
+        LinkStack<String> orin = new LinkStack<>();
+        for(int i=0; i < 5; i ++){
+            orin.push(String.valueOf(i));
+        }
+        for(String s: orin){
+            StdOut.println(s);
+        }
+        LinkStack<String> another = LinkStack.copy(orin);
+        for(String s: another){
+            StdOut.println(s);
+        }
        }
 }
