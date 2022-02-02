@@ -2,8 +2,6 @@ package Chapter1.part3;
 
 import edu.princeton.cs.algs4.StdOut;
 
-import java.util.Iterator;
-
 public class LinkQueue<Item>{
     private Node Last;
     private class Node{
