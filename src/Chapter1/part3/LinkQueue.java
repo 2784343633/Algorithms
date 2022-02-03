@@ -34,14 +34,8 @@ public class LinkQueue<Item>{
         Last.next = Last.next.next;
         return temp;
     }
+
     public static void main(String[] args){
-        LinkQueue<Integer> queue = new LinkQueue<>();
-        for(int i=0; i<5; i ++){
-            queue.push(i);
-        }
-        while(!queue.isEmpty()){
-            StdOut.println(queue.pop());
-        }
     }
 
 }
