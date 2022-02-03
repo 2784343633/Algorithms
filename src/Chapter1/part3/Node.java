@@ -5,6 +5,9 @@ import edu.princeton.cs.algs4.StdOut;
 public class Node<Item> {
     Item item;
     Node<Item> next = null;
+    public Node(Item item){
+        this.item = item;
+    }
     public Node<Item> reverse(Node<Item> head){
         Node<Item> first = head;
         Node<Item> reverse = null;
@@ -17,12 +20,11 @@ public class Node<Item> {
         return reverse;
     }
     public static void main(String[] args){
-        Node<Integer> head = new Node<>();
+        Node<Integer> head = new Node<>(0);
         Node<Integer> p = head;
         head.item = 0;
         for(int i=1; i<5; i++){
-            Node<Integer> node = new Node<>();
-            node.item = i;
+            Node<Integer> node = new Node<>(i);
             p.next = node;
             p = node;
         }
