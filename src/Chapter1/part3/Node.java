@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.StdOut;
 public class Node<Item> {
     Item item;
     Node<Item> next = null;
+    Node<Item> prior = null;
     public Node(Item item){
         this.item = item;
     }
@@ -20,19 +21,29 @@ public class Node<Item> {
         return reverse;
     }
     public static void main(String[] args){
-        Node<Integer> head = new Node<>(0);
-        Node<Integer> p = head;
-        head.item = 0;
-        for(int i=1; i<5; i++){
-            Node<Integer> node = new Node<>(i);
-            p.next = node;
-            p = node;
+        DoubleNode dn = new DoubleNode();
+        dn.head = new Node<>(0);
+        for(int i=4; i >= 0; i --){
+            DoubleNode.insertBehind(dn.head, new Node<>(i));
         }
-        head = head.reverse(head);
-        Node<Integer> current = head;
-        while(current != null){
-            StdOut.println(current.item);
-            current = current.next;
+        Node p = dn.head;
+        while(p!=null){
+            StdOut.println(p.item);
+            p = p.next;
         }
+    }
+}
+
+class DoubleNode{
+    Node head = null;
+    public static void insertBefore(Node orin, Node ins){
+        ins.next = orin;
+        ins.prior = orin.prior;
+        orin.prior = ins;
+    }
+    public static void insertBehind(Node orin, Node ins) {
+        ins.next = orin.next;
+        ins.prior = orin;
+        orin.next = ins;
     }
 }
