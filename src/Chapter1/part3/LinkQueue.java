@@ -13,6 +13,20 @@ public class LinkQueue<Item>{
         Last.item = null;
         Last.next = Last;
     }
+    public LinkQueue(LinkQueue<Item> queue){
+        Last = new Node();
+        Last.item = null;
+        Last.next = Last;
+
+        Item flag = queue.pop();
+        queue.push(flag);
+        this.push(flag);
+        while(queue.Last.next.item != flag){
+            Item item = queue.pop();
+            queue.push(item);
+            this.push(item);
+        }
+    }
     public boolean isEmpty(){
         return Last.item == null;
     }
@@ -36,6 +50,14 @@ public class LinkQueue<Item>{
     }
 
     public static void main(String[] args){
+        LinkQueue<Integer> queue = new LinkQueue<>();
+        for(int i=0; i < 5; i ++){
+            queue.push(i);
+        }
+        LinkQueue<Integer> copy = new LinkQueue<>(queue);
+        while(!copy.isEmpty()){
+            StdOut.println(copy.pop());
+        }
     }
 
 }
