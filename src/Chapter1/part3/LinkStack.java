@@ -1,12 +1,14 @@
 package Chapter1.part3;
 
 import edu.princeton.cs.algs4.StdOut;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
 
 public class LinkStack<Item> implements Iterable<Item>{
     private Node First;
     private int N;
+    @NotNull
     @Override
     public Iterator<Item> iterator() {
         return new LinkStackIterator();

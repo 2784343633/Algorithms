@@ -1,6 +1,7 @@
 package Chapter1.part3;
 
 import edu.princeton.cs.algs4.StdOut;
+import java.io.File;
 
 public class LinkQueue<Item>{
     private Node Last;
@@ -60,4 +61,53 @@ public class LinkQueue<Item>{
         }
     }
 
+}
+class FileList {
+    static LinkQueue<File> FileQueue;
+    static int tabTime = 0;
+    public static void Solution(){
+        if(!FileQueue.isEmpty()){
+            File file = FileQueue.pop();
+            if(file != null){
+                if(file.isDirectory()){
+                    printDir(file);
+                    tabTime ++;
+                    File[] fs = file.listFiles();
+                    if(fs != null){
+                        for(File f: fs){
+                            FileQueue.push(f);
+                            Solution();
+                        }
+                    }else{
+                        ;
+                    }
+                    tabTime --;
+                }else{
+                    printFile(file);
+                }
+            }else{
+                ;
+            }
+        }else{
+            ;
+        }
+    }
+    public static void printFile(File file){
+        for(int i=0; i<tabTime; i ++){
+            StdOut.printf("\t");
+        }
+        StdOut.printf("|__ %s\n", file.getName());
+    }
+    public static void printDir(File file){
+        for(int i=0; i<tabTime; i ++){
+            StdOut.printf("\t");
+        }
+        StdOut.printf("%s:\n", file.getName());
+    }
+    public static void main(String[] args){
+        FileQueue = new LinkQueue<>();
+        File orin = new File("");
+        FileQueue.push(orin);
+        Solution();
+    }
 }

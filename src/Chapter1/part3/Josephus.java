@@ -1,6 +1,5 @@
 package Chapter1.part3;
 import edu.princeton.cs.algs4.StdOut;
-
 public class Josephus {
     public static void main(String[] args){
         LinkQueue<Integer> queue = new LinkQueue<>();
